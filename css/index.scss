@@ -1,0 +1,204 @@
+@charset "utf-8";
+@import  "_var", "_mixin", "_funcion";
+
+
+//common class
+.txt_wrap{
+  padding-left: 200px;
+  h2{font-family: optima;font-size: 50px;color: $Rbrwn;}
+}
+#cnt1, #cnt2, #cnt3, #cnt4{padding-top: 200px;}
+
+
+/* #loading{
+    @include flex;
+    @include justify-content;
+    @include align-items;
+    height: 100vh;
+    svg{position: absolute;top: 30%;left: 15%;z-index: -1;}
+    h1{font-family: "optima";font-size: 150px;color: $blue;text-align: center;}
+} */
+
+#cnt1{
+    height: 100vh;width: 100%;position: relative;background: linear-gradient(-217deg, #e6f0f5, rgba(255,0,0,0) 40%);
+    .bg_img{
+        margin-left: 550px;
+        background: url(../images/cnt1/cnt1_image.png) no-repeat;width: 622px;height: 777px;
+    }
+    .txt{
+        position: absolute;font-family: optima;font-size: 100px;text-transform: uppercase;animation: txtAni 5s ease infinite;
+    }
+    .txt:nth-of-type(2){top: 200px;left: 230px;color: $Rbrwn;animation-delay: 0.6s;}
+    .txt:nth-of-type(3){bottom: 100px;right: 260px;color: $blue;animation-delay: 1.5s;}
+        @keyframes txtAni {
+            0% {
+              transform: translateY(-50px);
+              opacity: 0;
+              clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+          }
+          50% {
+              transform: translateY(0);
+              opacity: 1;
+              clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 10%);
+          }
+          100% {
+            transform: translateY(50px);
+            opacity: 0;
+           clip-path: polygon(100% 0, 100% -0%, 0 100%, 0 100%);
+          }
+        }
+        
+
+    .deco1{background: url(../images/cnt1/shape2.png);width: 105px;height: 105px;}
+    .deco2{background: url(../images/cnt1/shape1.png);width: 129px;height: 129px;}
+    .deco3{background: url(../images/cnt1/design1.png);width: 128px;height: 108px;}
+    .deco4{background: url(../images/cnt1/design2.png);width: 86px;height: 86px;}
+    .deco1, .deco2, .deco3, .deco4{position: absolute;}
+    .deco1{bottom: 400px;left: 400px;}
+    .deco2{bottom: 300px;left: 230px;}
+    .deco3{top: 80px;right: 650px;}
+    .deco4{bottom: 200px;right: 220px;}
+
+
+}
+
+#cnt2{
+  position: relative;overflow: hidden;
+ 
+  #cnt2_bg{
+    position: relative;width: 100%;height: 650px;background-color: #F2F5F5;
+    &::after{
+      content:"";position: absolute;top: -120px;left: 0;background: url(../images/cnt2/wave.jpg) repeat-x;width: 200%;height: 120px;animation: wave 5s ease infinite;
+    }
+  }
+  @keyframes wave {
+    0%{transform: translateX(0%)}
+    100%{transform: translateX(-50%)}
+  }
+  .introduce{
+    position: relative;margin: 50px 0 0 700px;/* border: 1px solid red; */
+    strong{font-family: optima;font-size: 40px;color: $blue;font-weight: 400;}
+    p{
+      color: $gray;font-size: 20px;line-height: 2;
+      span{font-weight: 700;}
+    }
+    &::after{
+    content:"";position: absolute;top: -100px;left: 40%;background: url(../images/cnt2/cnt2_pic.jpg) no-repeat 50% 50% / cover;width: 400px;height: 500px;opacity: 0;
+    }
+    &:hover::after{opacity: 1;}
+  }
+  
+}
+
+#cnt3{
+  height: 160vh;
+  .accordion{
+    width: 1230px;color: $beige;float: right;
+    .title:nth-of-type(1){
+      background-color: $pink;color: $brwn;
+      span{border-color: $brwn;}
+      .bdline{background-color: $brwn;}
+     }
+    .title:nth-of-type(2){background-color: $blue;}
+    .title:nth-of-type(3){
+      background-color: $beige;
+      span{border-color: $blue;color: $blue;}
+      .bdline{background-color: $blue;}
+    }
+    .panel:nth-of-type(3){
+      color: $blue;
+    }
+    .title:nth-of-type(4){background-color: $Rbrwn;}
+    .title:nth-of-type(5){background-color: $brwn;}
+    .header{
+      height: 150px;width: 100%;text-align: left;
+      span{
+        font-size: 40px;border: 2px solid $beige;padding: 0 27px;
+      }
+      div:first-child{margin: 39px 0 37px 50px;}
+     .bdline{
+       background: $beige;height: 2px;width: 90%;display: inline-block;margin: 0 5%;opacity: 0; transition: opacity 1s;
+      }
+      &.on .bdline{opacity: 1;}
+    }
+    .panel{
+      @include flex;
+      @include justify-content(space-around);
+      @include align-items;
+      visibility: hidden;overflow: hidden;max-height: 0;margin: 0 auto;height: 400px;transition: max-height 0.5s;
+      &.on{
+        visibility: visible;max-height: 500px;
+      }
+      &:nth-of-type(1){background-color: $pink;color: $brwn;}
+      &:nth-of-type(2){background-color: $blue;}
+      &:nth-of-type(3){background-color: $beige;}
+      &:nth-of-type(4){background-color: $Rbrwn;}
+      &:nth-of-type(5){background-color: $brwn;}
+      .wrap{
+        width: 500px;height: 300px;background: #fff;border: 1px solid $beige;
+      }
+      .about{
+        text-align: center;
+        strong{font-size: 30px;}
+        p{font-size: 20px;margin-top: 20px;}
+      }
+    }
+  }
+}
+
+#cnt4{
+  position: relative;height: 150vh;font-weight: 300;
+  .bg{
+    width: 100%;height: 100%;
+    .bg_img{
+      position: relative;float: right;width: 902px;height: 880px;
+      .txt, img{
+        @include translateY-50;
+        position: absolute;top: 50%;
+      }
+      .txt{
+        left: 20%;text-align: center;
+        h4{font-size: 100px;}
+      }
+      img{right: 5%;}
+    }
+    .next, .prev{
+      position: absolute;top: 50%;left: 885px;cursor: pointer;
+      .next_text, .prev_text{
+        font-size: 12px;
+        span{
+          position: absolute;top: -20px;left: 20px;height: 80px;transition: transform 0.5s;
+          &:nth-child(1){transform: rotate(-110deg);}
+          &:nth-child(2){transform: rotate(-90deg);}
+          &:nth-child(3){transform: rotate(-430deg);}
+          &:nth-child(4){transform: rotate(-410deg);}
+          }
+         &:hover{
+          span{
+            &:nth-child(1){transform: rotate(-130deg);}
+            &:nth-child(2){transform: rotate(-98deg);}
+            &:nth-child(3){transform: rotate(-423deg);}
+            &:nth-child(4){transform: rotate(-390deg);}
+          }
+        }
+      }
+    }
+  }
+  .project1{
+    
+    .bg_img{
+      background-image: url(../images/cnt4/sulwhasoo_bg.png);
+      h4{color: $Rbrwn;}
+    }
+    .next_text{color: $blue;}
+  }
+  .project2{
+     visibility: hidden;overflow: hidden;max-height: 0;
+    .bg_img{
+      background-image: url(../images/cnt4/nespresoo_bg.png);
+      h4{color: $blue;}
+    }
+    .prev_text{color: $Rbrwn;}
+  }
+
+}
